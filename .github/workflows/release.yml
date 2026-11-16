@@ -1,0 +1,32 @@
+# Builds the plugin and drafts a GitHub release when a version tag is pushed.
+# The tag must equal "version" in manifest.json, without a "v" prefix (Obsidian's rule).
+name: Release
+on:
+  push:
+    tags: ["*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check that the tag matches manifest.json and versions.json
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          version="$(node -p "require('./manifest.json').version")"
+          [ "$tag" = "$version" ] || { echo "tag $tag differs from manifest version $version"; exit 1; }
+          node -e "const v=require('./versions.json'); if(!v['$version']) { console.error('versions.json has no entry for $version'); process.exit(1); }"
+      - name: Build
+        run: ./build.sh
+      - name: Test
+        run: node test/core.test.js
+      - name: Draft the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/main.js dist/manifest.json dist/styles.css \
+            --draft --title "$GITHUB_REF_NAME" --generate-notes

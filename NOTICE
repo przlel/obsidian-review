@@ -1,0 +1,11 @@
+MD Review
+Copyright 2026 Przemysław Lelakowski
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes diff-match-patch (vendor/diff_match_patch.js, bundled
+into main.js), Copyright 2018 The diff-match-patch Authors,
+https://github.com/google/diff-match-patch, licensed under the Apache License,
+Version 2.0 (see LICENSE).
+The vendored file is index.js of the npm package diff-match-patch 1.0.5,
+unchanged, SHA-256 7cead2c7cb3e4ff5c02e173cd6b81d22005e67c47ac2ce28e4b5c73d9ffcfdb2.

@@ -1,0 +1,9 @@
+{
+  "id": "md-review",
+  "name": "MD Review",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Add review comments to Markdown lines and discuss them in threads with an AI agent, which reads and answers them in a JSON file next to the note.",
+  "author": "Przemysław Lelakowski",
+  "isDesktopOnly": true
+}
