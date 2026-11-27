@@ -64,7 +64,7 @@ keeps them updated.
 
 1. Install and enable **BRAT** from Settings → Community plugins → Browse.
 2. Run the BRAT command **Add a beta plugin for testing** from the command palette.
-3. Enter `OWNER/obsidian-md-review` and confirm.
+3. Enter `przlel/obsidian-review` and confirm.
 4. Enable **MD Review** in Settings → Community plugins.
 
 ### Manually from a release
@@ -80,8 +80,8 @@ keeps them updated.
 ### From source
 
 ```bash
-git clone https://github.com/OWNER/obsidian-md-review.git
-cd obsidian-md-review
+git clone https://github.com/przlel/obsidian-review.git
+cd obsidian-review
 ./build.sh "/path/to/your vault"
 ```
 
@@ -123,7 +123,7 @@ Start Claude Code in your vault folder, so it can read and write the notes.
 Agents that read skills in the same format (a folder with `SKILL.md`) can use the
 folder as is. For any other agent, point it to `PROTOCOL.md`: set
 **Settings → MD Review → Protocol link** to
-`https://github.com/OWNER/obsidian-md-review/blob/main/agent/skills/md-review/PROTOCOL.md`.
+`https://github.com/przlel/obsidian-review/blob/main/agent/skills/md-review/PROTOCOL.md`.
 The plugin then puts the link into every copied prompt.
 
 ## Your first review
